@@ -34,7 +34,7 @@ checkbtn.onclick = () => {
                 checkbtn.classList.add('opacity');
                 let tryaginbtn = document.createElement('button');
                 tryaginbtn.classList.add('againbtn');
-                tryaginbtn.innerText = 'আবার চেষ্টা করুন';
+                tryaginbtn.innerText = 'আবার খেলুন';
                 display.appendChild(tryaginbtn);
                 tryaginbtn.onclick = () => {
                     window.location.reload();
