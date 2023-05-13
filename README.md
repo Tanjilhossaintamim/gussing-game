@@ -1,2 +1,2 @@
 # gussing-game
-this is an vannila javascript assignment project.
+this is a vannila javascript assignment project.
