@@ -17,15 +17,18 @@ startgamebtn.onclick = () => {
 }
 let block = 'block'
 let sum = 0;
+
+let correct_ans = parseInt(Math.random(1) * 10); // this is correct ans variable 
+
 checkbtn.onclick = () => {
     let uservalu = input.value;
-    if (uservalu > 0 && uservalu < 11 && uservalu !== "") {
+    if (uservalu >= 0 && uservalu < 11 && uservalu !== "") {
         sum += 1;
 
-        let rendomvalue = parseInt(Math.random(1) * 10);
         if (sum <= 3) {
+            // condition checking 
 
-            if (uservalu == rendomvalue) {
+            if (uservalu == correct_ans) {
                 display.innerHTML = ""
                 let h4 = document.createElement('h4');
                 h4.innerText = 'অভিন্দন আপনি জিতেছেন !!';
@@ -42,10 +45,15 @@ checkbtn.onclick = () => {
 
 
             }
-            else {
-                display.innerHTML = `<h4>আপনার দেওয়া নাম্বারটি সঠিক হয়নি সঠিক সংখ্যা টি ছিল <span style="color:blue;">${rendomvalue}</span> । আবার চেষ্টা করুন !</h4>`;
+            else if (uservalu > correct_ans) {
+                display.innerHTML = `<h4>আপনি যে নাম্বার টি দিয়েছেন সেটি সঠিক উত্তর অপেক্ষা বড় আবার চেষ্টা করুন !</h4>`;
                 input.value = ''
             }
+            else if (uservalu<correct_ans){
+                display.innerHTML = `<h4>আপনি যে নাম্বার টি দিয়েছেন সেটি সঠিক উত্তর অপেক্ষা ছোট  আবার চেষ্টা করুন !</h4>`;
+                input.value = ''
+            }
+            
         }
         else {
 
@@ -69,10 +77,7 @@ checkbtn.onclick = () => {
 
     }
 
-    else if (uservalu < 0) {
-        display.innerHTML = '<h4>আপনার দেওয়া নাম্বারটি অবশই ০ থেকে বড় হত হবে!</h4>';
-        input.value = ''
-    }
+    
     else if (uservalu == "") {
         alert('অনুগ্রহ করে নাম্বার লিখুন')
     }
